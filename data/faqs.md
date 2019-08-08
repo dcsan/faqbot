@@ -8,6 +8,82 @@ link: https://github.com/dcsan/faqbot/blob/master/data/faqs.md
 
 tags: howto
 
+## 1.1 I can not login with my Wechat account
+Wechat account that registered after 2017 will not be able to login via Web API. Learn more at https://github.com/Chatie/wechaty/issues/872
+
+Solution: Wechaty support protocols other than Web API, such as pad. Learn more at https://github.com/Chatie/wechaty/issues/1296
+
+
+## 2.1 Does wechaty support Red envelope, transfer money, moment?
+Short answer: NO
+
+Long answer:
+
+Payment: we won't support this because this related to property security
+@ someone in the room: we will support this in the future in solutions other than Web API.
+Send Contact Card: we support this in ipad solution.
+Send Share Card: we will support this in the future in solutions other than Web API.
+Send Voice: we will support this in the future in solutions other than Web API.
+Moment: we haven't decide yet whether to support this function
+
+## 2.2 Can wechaty send url rich media message?
+Not yet at this moment, will support later
+
+Related Issue：
+- Add support for send url rich media message
+- can wechaty send share card msg
+
+## 2.3 I don't know wechaty support for personal account of wechat official account
+At this moment, wechaty only support personal account
+
+Related Issue:
+- Using wechaty to start a wechatOA account
+
+
+## 3.1 What is a Puppet in Wechaty
+The term Puppet in Wechaty is an Abstract Class for implementing protocol plugins. The plugins are the component that helps Wechaty to control the Wechat(that's the reason we call it puppet).
+
+The plugins are named XXXPuppet, like PuppetPuppeteer is using the chrome puppeteer to control the WeChat Web API via a chrome browser, PuppetPadchat is using the WebSocket protocol to connect with a Protocol Server for controlling the iPad Wechat program.
+
+## 3.2 Wechaty & Queue
+In order not blocked by wechat, we add queue in wechaty, see more: rx-queue
+
+## 3.3 What's the difference between wechaty and wechat4u?
+Wechaty can implement many wechat protocol plughins. The plugins are the component that helps Wechaty to control the Wechat. Wechaty provide same API in web, ipad, ios solutions. wechat4u is SPACELAN write as a web solution on github. Wechaty can use wechaty API call wechat 4u API
+
+Is this right: wechaty has All api in wechat4u, but wechat 4u don't have all api wechaty has.
+
+No, wechaty use wechaty itself API for wechat4u. They are totally 2 different project and no one contains another.
+
+## 3.4 I found there is a default.memory-card.json in the root directory, what does this do?
+The default.memory-card.json stores the bot's login information, which can be used to save bot's personal information, so the bot can auto login to Wechat after the first time.
+
+## 3.5 If the default.memory-card.json stores my bot's personal information, what if I want to start multiple bots? Are they gonna share the same file?
+If you want to fire up multiple bots on one machine, you can setup the name for the memory-card, so you will have multiple memory-card.json files, To setup the name, you need to setup the profile for your bot, you have two options to do this:
+
+1. Set the profile with option of the constructor, like this
+const bot = Wechaty.instance({ profile: 'your-cute-bot-name' })
+2. Set the environment variable for WECHATY_PROFILE during the start
+WECHATY_PROFILE="your-cute-bot-name" node bot.js
+Then you will see a file called your-cute-bot-name.memory-card.json file in the root folder.
+
+## 3.6 Why wechaty.on(event, listener) return Wechaty
+This is for chaining.
+
+Method chaining, also known as named parameter idiom, is a common syntax for invoking multiple method calls in object-oriented programming languages. Each method returns an object, allowing the calls to be chained together in a single statement without requiring variables to store the intermediate results. More info in wiki
+
+Wechaty class support method chaining, you could write code like this:
+
+const { Wechaty } = require('wechaty')
+const bot = new Wechaty()
+.on('scan', (qrcode, status) =>  {})
+.on('login', user => {})
+.on('message', message => {})
+.start()
+ Add a custom footer
+
+
+
 ## 0. What's the easiest way to start using Wechaty?
 
 1. Clone our Starter Project at <https://github.com/Chatie/wechaty-getting-started>
@@ -36,7 +112,7 @@ So I would like to suggest all my friends not to use the semicolon, which is a _
 
 [![JS Standard Coding Style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://standardjs.com/rules.html#semicolons)
 
-> No semicolons. 
+> No semicolons.
 
 Related PR:
 * [#362](https://github.com/Chatie/wechaty/pull/362/files/3c3c9ef92b05149ab5813248d454943102ccdcd3..fe29a6c154bc64a603d934c7954c538c38e2ea60#r111056262)
@@ -45,7 +121,7 @@ Related PR:
 
 ## 3. How to Understand the Wechaty Semantic Versioning?
 
-### Short answer: 
+### Short answer:
 
 Even Minor Number is for Production.
 
@@ -86,7 +162,7 @@ Copy from **Linux Kernel Version Numbering** - http://www.linfo.org/kernel_versi
 
 ## 4. Why login via scanning the QRcode instead of just username and password?
 
-> I see in the code the ability to log in via username and password, so probably I can create an account from scratch and do not need to scan the QR .... but why not? 
+> I see in the code the ability to log in via username and password, so probably I can create an account from scratch and do not need to scan the QR .... but why not?
 
 Yes, you are right.
 
@@ -111,11 +187,11 @@ contact.say('hello room')
 ```
 See more example at https://github.com/Chatie/wechaty/wiki/Example
 
-Related issues: 
+Related issues:
 * [#446](https://github.com/Chatie/wechaty/issues/446) how to send mesage without onMessage
 * [#200](https://github.com/Chatie/wechaty/issues/200) [new feature] Forward Message
 * [#89](https://github.com/Chatie/wechaty/issues/89) Wechaty.send() error when send message to the room
-* [#41](https://github.com/Chatie/wechaty/issues/41) [New Feature] send message by branding new method: say() 
+* [#41](https://github.com/Chatie/wechaty/issues/41) [New Feature] send message by branding new method: say()
 
 ## Get ERROR: can not found bot file: xxx.js when using docker to start wechaty.
 
@@ -164,4 +240,46 @@ more: https://github.com/wechaty/wechaty-getting-started/wiki/FAQ-ZH#11-%E6%88%9
 
 支付相关 - 红包、转账、收款 等都不支持 在群聊中@他人 - 是的，Web 微信中被人@后也不会提醒 发送名片 发送分享链接 发送语音消息 - 后续会支持 朋友圈相关 - 后续会支持
 
-  
+## wechaty 是否可以发送卡片消息，然后点击跳转到网页
+现阶段还不可以，后续会在非web 解决方案中陆续支持
+
+相关Issue：
+
+Add support for send url rich media message
+can wechaty send share card msg
+
+## wechaty 是支持个人号还是公众号？
+现阶段，wechaty 只支持个人号
+
+相关Issue:
+
+Using wechaty to start a wechatOA account
+
+## wechaty & 队列的最佳实践
+为了防止微信封号，wechaty 内置了队列，详细可见：rx-queue
+
+## wechaty 和 wechat4u 项目，有什么区别？
+wechaty 可以实现多个微信接入的方案，对外提供统一的接口，包括web，ipad，ios等等，其中wechat4u 是SPACELAN写的基于web 实现微信接入的，wechaty 可以实现用wechaty 的接口，调用wechat4u的api。
+
+这么理解：wechat4u有的，wechaty都有，反之不一定有，对么？
+
+这个也不是完全确定的，因为wechaty 只是基于wechaty 暴露出来的接口为wechat4u 进行了封装
+
+## 我发现在根目录下有一个default.memory-card.json 的文件，这个文件是干什么的？
+default.memory-card.json 会用来存储登陆信息，机器人可以通过这个文件实现自动登陆。
+
+## 既然default.memory-card.json 存储了机器人的登陆信息，如果我想启动多个机器人，如何防止每次启动的时候加载不同的信息呢？
+如果你想在一个机器上启动多个机器人，你可以通过设置 profile 的值设置不同的机器人登陆信息，对应的你得到多个*.memory-card.json文件。有两种方法可以设置profile
+
+1. wechaty 初始化的时候设置profile
+
+> const bot = Wechaty.instance({ profile: 'your-cute-bot-name' })
+
+2. 通过设置WECHATY_PROFILE 环境变量传递profile
+
+> WECHATY_PROFILE="your-cute-bot-name" node bot.js
+
+这样，你就可以在根目录下看到your-cute-bot-name.memory-card.json的文件了。
+
+
+
