@@ -1,12 +1,6 @@
 ## What does FAQ mean
-Frequently Asked Question!
-
+Frequently Asked Questions!
 tags: faq
-
-## Why is the sky blue
-Because of all the blue stuff
-
-tags: sky, blue
 
 ## How do I add a new FAQ?
 Add to the page here:
@@ -153,3 +147,21 @@ setenforce 0
 **Related issues:**
 * [#66](https://github.com/Chatie/wechaty/issues/66#issuecomment-374086724) Dockerize Wechaty for easy start
 
+
+## 我的微信号无法登陆
+从2017年6月下旬开始，使用基于web版微信接入方案存在大概率的被限制登陆的可能性。 主要表现为：无法登陆Web 微信，但不影响手机等其他平台。 验证是否被限制登陆： https://wx.qq.com 上扫码查看是否能登陆。 更多内容详见：
+
+Can not login with error message: 当前登录环境异常。为了你的帐号安全，暂时不能登录web微信。
+[RUMOR] wechat will close webapi for wechat
+New account login issue
+wechaty-puppet-puppeteer
+解决方案：我们提供了非web 版本的解决方案，正在进行alpha 测试，点击申请测试token，技术细节及实现请查看wechaty-puppet-padchat
+
+more: https://github.com/wechaty/wechaty-getting-started/wiki/FAQ-ZH#11-%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%8F%B7%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86
+
+## 支持 红包、转账、朋友圈… 吗？
+以下功能目前 均不支持
+
+支付相关 - 红包、转账、收款 等都不支持 在群聊中@他人 - 是的，Web 微信中被人@后也不会提醒 发送名片 发送分享链接 发送语音消息 - 后续会支持 朋友圈相关 - 后续会支持
+
+  
