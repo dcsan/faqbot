@@ -84,22 +84,26 @@ const bot = new Wechaty()
 
 
 
-## 0. What's the easiest way to start using Wechaty?
+## What's the easiest way to start using Wechaty?
 
 1. Clone our Starter Project at <https://github.com/Chatie/wechaty-getting-started>
-1. Run `npm install`
-1. Run `npm start`
-1. Our demo example will be runned out-of-the-box
-1. Modify our demo example to implement your own bot logic
+2. Run `npm install`
+3. Run `npm start`
+4. Our demo example will be runned out-of-the-box
+5. Modify our demo example to implement your own bot logic
 
-## 1. Why are the entire project writing in English?
+tags: getting-started
+
+## Why are the entire project writing in English?
 
 First, it's the author's choice: he wants to practice English by writing more.
 
 Second, according to [PEP8 from Python](https://www.python.org/dev/peps/pep-0008/#comments):
 > ... coders from non-English speaking countries: please write ... in English, unless you are 120% sure that the code will never be read by people who don't speak your language.
 
-## 2. Why doesn't the entire project use the semicolon?
+tags: en, english
+
+## Why doesn't the entire project use the semicolon?
 
 It's just author's favorite.
 
@@ -117,9 +121,9 @@ So I would like to suggest all my friends not to use the semicolon, which is a _
 Related PR:
 * [#362](https://github.com/Chatie/wechaty/pull/362/files/3c3c9ef92b05149ab5813248d454943102ccdcd3..fe29a6c154bc64a603d934c7954c538c38e2ea60#r111056262)
 
+tags: code-style
 
-
-## 3. How to Understand the Wechaty Semantic Versioning?
+## How to Understand the Wechaty Semantic Versioning?
 
 ### Short answer:
 
@@ -160,7 +164,7 @@ Copy from **Linux Kernel Version Numbering** - http://www.linfo.org/kernel_versi
 
 > The second number denotes the major revision of the kernel version. It was formerly the case that even numbers indicated a stable release, that is, one that was deemed fit for production use (i.e., use in a non-experimental environment), such as 1.2, 2.4 or 2.6. Likewise, odd numbers, such as 1.1 or 2.5, have historically represented development releases. They were for testing new features and device drivers until they became sufficiently stable to be included in a stable release. However, this has changed starting with the Linux 2.6.x series, and new feature development now takes place in the same revision number.
 
-## 4. Why login via scanning the QRcode instead of just username and password?
+## Why login via scanning the QRcode instead of just username and password?
 
 > I see in the code the ability to log in via username and password, so probably I can create an account from scratch and do not need to scan the QR .... but why not?
 
@@ -171,6 +175,8 @@ Some of the puppet(Wechaty Puppet, specifically) has the ability to login via us
 1. some of the puppets do not have the ability to do that, for example, PuppetWechat4u, which is using the Web API;
 1. when you log in by scan QR Code, you can keep your session on your phone, which means you can use WeChat at the same time when your Bot is online; If you login in by username/password, then all other login sessions will be terminated, only your Bot can use WeChat.
 1. as you have already seen, we are using a Protocol Server to control the iPad WeChat. If you want to use username/password to log in, then you will have to send that sensitive information to a 3rd party server, which will not be comfortable for most people.
+
+tags: login
 
 ## How to send the message without onMessage?
 
@@ -192,6 +198,7 @@ Related issues:
 * [#200](https://github.com/Chatie/wechaty/issues/200) [new feature] Forward Message
 * [#89](https://github.com/Chatie/wechaty/issues/89) Wechaty.send() error when send message to the room
 * [#41](https://github.com/Chatie/wechaty/issues/41) [New Feature] send message by branding new method: say()
+
 
 ## Get ERROR: can not found bot file: xxx.js when using docker to start wechaty.
 
@@ -223,6 +230,7 @@ setenforce 0
 **Related issues:**
 * [#66](https://github.com/Chatie/wechaty/issues/66#issuecomment-374086724) Dockerize Wechaty for easy start
 
+tags: troubleshooting
 
 ## 我的微信号无法登陆
 从2017年6月下旬开始，使用基于web版微信接入方案存在大概率的被限制登陆的可能性。 主要表现为：无法登陆Web 微信，但不影响手机等其他平台。 验证是否被限制登陆： https://wx.qq.com 上扫码查看是否能登陆。 更多内容详见：
