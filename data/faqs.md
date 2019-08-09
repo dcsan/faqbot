@@ -297,6 +297,6 @@ https://github.com/MiniProgDevs/faqbot/wiki/Faqs#qrcode
 
 tags: mp, qrcode
 
-# parametric QR code 
+## parametric QR code 
 You can generate QR codes with parameters...
 https://github.com/MiniProgDevs/faqbot/wiki/Faqs#parametric QR code
