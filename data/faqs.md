@@ -291,3 +291,12 @@ default.memory-card.json 会用来存储登陆信息，机器人可以通过这�
 
 
 
+## qrcode
+each MiniProgram has it's own QR code. you can also generate three different types of custom QRs
+https://github.com/MiniProgDevs/faqbot/wiki/Faqs#qrcode
+
+tags: mp, qrcode
+
+# parametric QR code 
+You can generate QR codes with parameters...
+https://github.com/MiniProgDevs/faqbot/wiki/Faqs#parametric QR code
